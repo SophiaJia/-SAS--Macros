@@ -1,7 +1,7 @@
 
-%macro surt_cat(data=, var=, sout=);
+%macro surt_cat(data =, var=, survtime = , scensor = , sout = );
 proc lifetest data=&data ;
-time surv_from_ind*scensor(0);
+time &survtime * &scensor(0);
 strata &var;
 ods output Quartiles=Median(where=(Percent=50));
 ods output  CensoredSummary=deathN;
@@ -38,20 +38,20 @@ drop Test ChiSq DF;
 run;
 *************** actural median survival and range; 
 proc means data = D median min max ;
-var surv_from_ind ;
+var &survtime ;
 class &var; 
 ods output Summary = out_actual;
 run;
 
 data out_actual;
 set out_actual;
-Median_range = put(surv_from_ind_Median, 4.2)||"  ("||put(surv_from_ind_Min,4.2)||","||put(surv_from_ind_Max,4.2)||")";
+Median_range = put(&survtime._Median, 4.2)||"  ("||put(&survtime._Min,4.2)||","||put(&survtime._Max,4.2)||")";
 keep d28_lt500 Median_range;
 run;
 
 **** HR and p-value;
 proc phreg data=&data;
-      model surv_from_ind*scensor(0)=&var /risklimits;
+      model &survtime * &scensor(0)=&var /risklimits;
 	  ods output ParameterEstimates=PE;
 run;
 
@@ -68,4 +68,4 @@ merge Surv_logR HR_out out_actual;
 run;
 %mend;
 
-%surt_cat(data=D, var=d28_lt500, sout=ss1);
+*%surt_cat(data = D, var = d28_lt500, survtime = surv_from_ind, scensor = scensor, sout = ss3);
