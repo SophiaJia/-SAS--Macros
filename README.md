@@ -17,4 +17,4 @@
      - Procedures : phreg
      - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\survival_macro_multy.sas" ;
      - Usage      : %surt(data=D, var = V1 V2 V3 V4 V5, survtime = rfs, scensor = rcensor, sout=rs1);
-     - Other      : including output
+     - Output     : survival_macro_output_multy.sas
