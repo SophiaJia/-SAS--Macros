@@ -21,9 +21,9 @@ where Stratum1="T"
 
 proc sql;
 create table _sout as
-select _Median.&var as var1, _DeathN.Total as Total, _DeathN.Failed as Death, 100-PctCens as Pcent, _Median.Estimate as EMtime
-from _Median, _DeathN
-where _Median.STRATUM=_deathN.Stratum
+select Median.&var as var1, DeathN.Total as Total, DeathN.Failed as Death, 100-PctCens as Pcent, Median.Estimate as EMtime
+from Median, DeathN
+where Median.STRATUM=deathN.Stratum
 ;
 
 data _pv;
@@ -45,12 +45,12 @@ run;
 
 data _out_actual;
 set _out_actual;
-Median_range = put(&survtime._Median, 4.2)||"  ("||put(&survtime._Min,4.2)||", "||put(&survtime._Max,4.2)||")";
+Median_range = put(&survtime._Median, 4.2)||"  ("||put(&survtime._Min,4.2)||","||put(&survtime._Max,4.2)||")";
 keep d28_lt500 Median_range;
 run;
 
 **** HR and p-value;
-proc phreg data=&data ;
+proc phreg data=&data;
       model &survtime * &scensor(0)=&var /risklimits;
 	  ods output ParameterEstimates=_PE;
 run;
@@ -68,9 +68,9 @@ merge _Surv_logR _HR_out _out_actual;
 run;
 
 proc datasets library=work;
-delete  _hr_out _median _out_actual _pe _pv _surv_logr _sout _deathn;
+delete _deathn _hr_out _median _out_actual _pe _pv _surv_logr;
 run;
-quit;
+
 %mend;
 
-*%surt_cat(data = D, var = d28_lt500, survtime = surv_from_ind, scensor = scensor, sout = ss3);
+%surt_cat(data = D, var = d28_lt500, survtime = surv_from_ind, scensor = scensor, sout = ss3);
