@@ -7,7 +7,7 @@ proc format;
 		    . = " ";
 run;
 ods rtf file="&basedir.\Table7_Survival_multy_add.doc" style=journal bodytitle;
-proc report data=  Sout_all_r nowd
+proc report data=  S2 nowd
             style(report)={borderwidth=3 bordercolor=black cellpadding=3
                            font_size=11pt font_face=Times  FONTSTYLE= ROMAN}
 
