@@ -2,7 +2,7 @@
 ============
 
  - Some SAS Macros: 
-   - Univariable Survival Analysis [9.3] 
+   - Univariable Survival Analysis [9.4] 
      - Name       : surv_cat()
      - Function   : Number of Total, Number of Death, Median estimated Survival HR and P_value 
      - Procedures : lifetest ; phreg
@@ -11,7 +11,7 @@
      - Output     : survival_macro_output.sas
      - Furture    : multiply variables input
   
-  - Multvariable Survival Analysis [9.3]
+  - Multvariable Survival Analysis [9.4]
      - Name       : surt()
      - Function   : HR (95% CI) and P_value 
      - Procedures : phreg
