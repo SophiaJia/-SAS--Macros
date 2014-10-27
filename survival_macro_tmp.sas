@@ -46,7 +46,7 @@ run;
 data _out_actual;
 set _out_actual;
 Median_range = put(&survtime._Median, 4.2)||"  ("||put(&survtime._Min,4.2)||","||put(&survtime._Max,4.2)||")";
-keep d28_lt500 Median_range;
+keep &var Median_range;
 run;
 
 **** HR and p-value;
@@ -68,9 +68,9 @@ merge _Surv_logR _HR_out _out_actual;
 run;
 
 proc datasets library=work;
-delete _deathn _hr_out _median _out_actual _pe _pv _surv_logr;
+delete _deathn _hr_out _median  _pe _pv _surv_logr;
 run;
 
 %mend;
 
-%surt_cat(data = D, var = d28_lt500, survtime = surv_from_ind, scensor = scensor, sout = ss3);
+*%surt_cat(data = D, var = d28_lt500, survtime = surv_from_ind, scensor = scensor, sout = ss3);
