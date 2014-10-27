@@ -6,7 +6,7 @@ proc format;
            0       -<  0.001   = "<0.001"  (NoEdit)
 		    . = " ";
 run;
-ods rtf file="&basedir.\Table6_Survival_additional.doc" style=journal bodytitle;
+ods rtf file="&basedir.\Table6_Uni_survival.doc" style=journal bodytitle;
 proc report data=  Sout_all nowd
             style(report)={borderwidth=3 bordercolor=black cellpadding=3
                            font_size=11pt font_face=Times  FONTSTYLE= ROMAN}
@@ -22,7 +22,7 @@ proc report data=  Sout_all nowd
             style(header)={background=white foreground=black borderbottomstyle=double
                           font_weight=bold FONTSTYLE= ROMAN
                           font_size=11pt font_face=Times};
-            column Parameter var1 Total Dp  Median_range EMtime   HR pvalue;
+            column Parameter var1 Total ND EMtime_2 HR pvalue;
             
 
             ***** Title *****;
@@ -43,22 +43,18 @@ proc report data=  Sout_all nowd
                                style(header) = {just = left}
                                style(column) = {cellwidth = 0.3in just = left};
 
-            define Total/"N0.Total" 
+            define Total/"Total" 
                                style(header) = {just = center}
                                style(column) = {cellwidth = 0.3in just = center};
-            define Death/"N0.Death" 
+            define ND/"Death" 
                                style(header) = {just = center}
                                style(column) = {cellwidth = 0.8in just = center};
 
-            define Median_range/"Actual survival time (Months)"
+            define EMtime_2/"Estimated Median Survival(Year)"
                                style(header) = {just = center}
                                style(column) = {cellwidth = 0.8in just = center};
 
-            define EMtime/"Estimated Median Survival(Months)"
-                               style(header) = {just = center}
-                               style(column) = {cellwidth = 0.8in just = center};
-
-            define HR/"Hazard Ratio (95%CI)"
+            define HR/"Hazard Ratio (95% CI)"
                                style(header) = {just = left}
                                style(column) = {cellwidth = 1.5in just = left};
 
