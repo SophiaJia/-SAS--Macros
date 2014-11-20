@@ -19,3 +19,10 @@
      - Usage      : %surt(data=D, var = V1 V2 V3 V4 V5, survtime = rfs, scensor = rcensor, sout=rs1);
      - Output     : survival_macro_output_multy.sas
      - Furture    : This macro is only good for binary varaibles 
+ - Others
+   - ROC Power calculate [9.4]
+     - Name       : rocpower
+     - Function   : Calculate the roc power
+     - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\rocpower.sas" ;
+     - example    : %macro rocpower (t0, t1, t2, percent, r,na, nn,n, alpha, tails, ordinal, I=2, J=1); 
+ 
