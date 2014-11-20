@@ -159,5 +159,3 @@ proc datasets library=work;
 run;
 
 %mend;
-
-*%surt_cat(data = D, var = d28_lt500, survtime = surv_from_ind, scensor = scensor, sout = ss3);
