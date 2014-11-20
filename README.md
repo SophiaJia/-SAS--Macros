@@ -8,7 +8,7 @@
      - Procedures : lifetest ; phreg
      - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\survival_macro_uni.sas";
      - Usage      : %surv_uni(data=D, var=d28_lt500, survtime = rfs, scensor = rcensor, sout=rs1);
-     - Output     : survival_macro_output.sas
+     - Output     : survival_macro_output_uni.sas
      - Furture    : multiply variables input
   
   - Multvariable Survival Analysis [9.4]
