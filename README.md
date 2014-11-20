@@ -6,7 +6,7 @@
      - Name       : surv_uni
      - Function   : Number of Total, Number of Death, Median estimated Survival HR and P_value 
      - Procedures : lifetest ; phreg
-     - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\survival_macro_uni.sas" ;
+     - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\survival_macro_uni.sas";
      - Usage      : %surv_uni(data=D, var=d28_lt500, survtime = rfs, scensor = rcensor, sout=rs1);
      - Output     : survival_macro_output.sas
      - Furture    : multiply variables input
