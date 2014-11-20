@@ -1,13 +1,13 @@
 -SAS--Macros
 ============
 
- - Some SAS Macros: 
+ - Survival Analysis : 
    - Univariable Survival Analysis [9.4] 
-     - Name       : surv_cat()
+     - Name       : surv_uni
      - Function   : Number of Total, Number of Death, Median estimated Survival HR and P_value 
      - Procedures : lifetest ; phreg
-     - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\survival_macro_uni.sass" ;
-     - Usage      : %surt_cat(data=D, var=d28_lt500, survtime = rfs, scensor = rcensor, sout=rs1);
+     - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\survival_macro_uni.sas" ;
+     - Usage      : %surv_uni(data=D, var=d28_lt500, survtime = rfs, scensor = rcensor, sout=rs1);
      - Output     : survival_macro_output.sas
      - Furture    : multiply variables input
   
