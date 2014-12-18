@@ -23,6 +23,6 @@
    - ROC Power calculate [9.4]
      - Name       : rocpower
      - Function   : Calculate the roc power
-     - Usage      : %include   "C:\Users\jiax\Documents\GitHub\-SAS--Macros\rocpower.sas" ;
+     - Usage      : %include   "C:\Users\jiax\Documents\GitHub\ -SAS--Macros\rocpower.sas" ;
      - example    : %macro rocpower (t0, t1, t2, percent, r,na, nn,n, alpha, tails, ordinal, I=2, J=1); 
  
